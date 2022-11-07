@@ -141,24 +141,92 @@
 
 // New  challenge
 
-const jonas = {
-  firstName: "Jonas",
-  lastName: "Schmedtman",
-  birthYear: 1991,
-  job: "teacher",
-  friends: ["Michael", "Peter", "Steven"],
-  hasDriverLicense: true,
+// const jonas = {
+//   firstName: "Jonas",
+//   lastName: "Schmedtman",
+//   birthYear: 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+//   hasDriverLicense: true,
 
-  calcAge: function () {
-    this.age = 2037 - this.birthYear;
-    return this.age;
-  },
+//   calcAge: function () {
+//     this.age = 2037 - this.birthYear;
+//     return this.age;
+//   },
 
-  getSummary: function () {
-    return `${this.firstName} is a ${this.calcAge()}-year old ${
-      this.job
-    }, and he has ${this.hasDriverLicense ? "a" : "no"} driver's license `;
-  },
+//   getSummary: function () {
+//     return `${this.firstName} is a ${this.calcAge()}-year old ${
+//       this.job
+//     }, and he has ${this.hasDriverLicense ? "a" : "no"} driver's license `;
+//   },
+// };
+
+// console.log(jonas.getSummary());
+
+// coding Chaallenge #3
+
+// BMI = mass / height ** 2 = mass / (height * height) (mass in kg and height in meter)
+
+// const mark = {
+//   fullName: "Mark Miller",
+//   weight: 78,
+//   height: 1.69,
+//   calcBMI: function () {
+//     this.bmi = this.weight / this.height ** 2;
+//     return this.bmi;
+//     // return this.weight / this.height ** 2;
+//   },
+// };
+
+// const john = {
+//   fullName: "John Smith",
+//   weight: 92,
+//   height: 1.95,
+//   calcBMI: function () {
+//     this.bmi = this.weight / this.height ** 2;
+//     return this.bmi;
+//     // return this.weight / this.height ** 2;
+//   },
+// };
+// mark.calcBMI();
+// john.calcBMI();
+
+// console.log(
+//   `${
+//     mark.bmi > john.bmi
+//       ? `${mark.fullName}'s BMI (${mark.bmi}) is highter than ${john.fullName}'s (${john.bmi}) !`
+//       : `${john.fullName}'s BMI (${john.bmi}) is highter than ${mark.fullName}'s (${mark.bmi}) !`
+//   } `
+// );
+
+// console.log(mark);
+
+// Coding challenge #4
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tips = [];
+const totals = [];
+const calcTip = (bill) =>
+  bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+for (let i = 0; i < bills.length; i++) {
+  // tak też działa
+  // tips[i] = calcTip(bills[i]);
+
+  tips.push(calcTip(bills[i]));
+  totals.push(tips[i] + bills[i]);
+
+  console.log(tips);
+  console.log(totals);
+}
+
+// Bonus
+const calcAverage = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
 };
-
-console.log(jonas.getSummary());
+console.log(calcAverage(totals));
