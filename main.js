@@ -235,21 +235,38 @@
 
 // znalezienie max-value and min-value on the array:
 
-const temperature = [9, 15, 0, 1, 'error', 2, 5, 9, 10, -5, 89];
+// scalicz 2 tablicy w jedną
+const temperature1 = [9, 15, 0, 1, 'error', 2, 5, 9, 10, -5, 89];
+const temperature2 = [19, 151, 0, 11, 'error', 2, 'error', 9, -10, 5, -89];
 
-const calcTempAmplitude = temps => {
+// const temperature = [...temperature1, ...temperature2];
+// lub .concat()
+// const temperature = temperature1.concat(temperature2);
+
+const calcTempAmplitude = (t1, t2) => {
+  const temps = t1.concat(t2);
+
   let max = temps[0];
   let min = temps[0];
-  temps;
-  for (let i = 0; i < temps.length; i++) {
-    if (temps[i] > max) {
-      max = temps[i];
-    } else if (temps[i] < min) {
-      min = temps[i];
-    }
+  console.log(temps);
 
-    console.log(min, max);
+  for (let i = 0; i < temps.length; i++) {
+    // tworzymy zmienna, ponieważ mamy wiele razy wykorzystany ten kod
+
+    const curTemp = temps[i];
+
+    if (typeof curTemp !== 'number') continue;
+
+    if (curTemp > max) {
+      max = curTemp;
+    }
+    if (curTemp < min) {
+      min = curTemp;
+    }
   }
+  console.log(min, max);
+  // amplituda
+  return max - min;
 };
 
-calcTempAmplitude(temperature);
+console.log(calcTempAmplitude(temperature1, temperature2));
