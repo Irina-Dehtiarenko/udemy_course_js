@@ -243,30 +243,46 @@ const temperature2 = [19, 151, 0, 11, 'error', 2, 'error', 9, -10, 5, -89];
 // lub .concat()
 // const temperature = temperature1.concat(temperature2);
 
-const calcTempAmplitude = (t1, t2) => {
-  const temps = t1.concat(t2);
+// const calcTempAmplitude = (t1, t2) => {
+//   const temps = t1.concat(t2);
 
-  let max = temps[0];
-  let min = temps[0];
-  console.log(temps);
+//   let max = temps[0];
+//   let min = temps[0];
+//   console.log(temps);
 
-  for (let i = 0; i < temps.length; i++) {
-    // tworzymy zmienna, ponieważ mamy wiele razy wykorzystany ten kod
+//   for (let i = 0; i < temps.length; i++) {
+//     // tworzymy zmienna, ponieważ mamy wiele razy wykorzystany ten kod
 
-    const curTemp = temps[i];
+//     const curTemp = temps[i];
 
-    if (typeof curTemp !== 'number') continue;
+//     if (typeof curTemp !== 'number') continue;
 
-    if (curTemp > max) {
-      max = curTemp;
-    }
-    if (curTemp < min) {
-      min = curTemp;
-    }
+//     if (curTemp > max) {
+//       max = curTemp;
+//     }
+//     if (curTemp < min) {
+//       min = curTemp;
+//     }
+//   }
+//   console.log(min, max);
+//   // amplituda
+//   return max - min;
+// };
+
+// console.log(calcTempAmplitude(temperature1, temperature2));
+
+// section of buggs
+
+// challenge #1
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+const printForecast = arr => {
+  let info = '...';
+  for (let i = 0; i < arr.length; i++) {
+    info += `${arr[i]}ºC in ${i + 1} days ... `;
   }
-  console.log(min, max);
-  // amplituda
-  return max - min;
+  console.log(info);
 };
-
-console.log(calcTempAmplitude(temperature1, temperature2));
+printForecast(data2);
